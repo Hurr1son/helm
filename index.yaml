@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  Rental-Chart:
+  - apiVersion: V2
+    created: "2021-08-21T01:07:34.223788+03:00"
+    digest: d407e861ba9982c1d764631dd120ed995337f82b93d837335343ccea8a2d50ad
+    name: Rental-Chart
+    urls:
+    - https://hurr1son.github.io/helm/Rental-Chart-2.tgz
+    version: "2"
+  rental:
+  - apiVersion: V2
+    created: "2021-08-21T01:07:34.223788+03:00"
+    digest: 2c01c8e5b82ff00023fd02eb79652e86bdcdee8f928e04d4a4c20d02b9d9eca1
+    name: rental
+    urls:
+    - https://hurr1son.github.io/helm/rental-1.tgz
+    version: "1"
+generated: "2021-08-21T01:07:34.2227873+03:00"
