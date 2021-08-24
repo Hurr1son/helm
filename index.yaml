@@ -2,10 +2,10 @@ apiVersion: v1
 entries:
   rental:
   - apiVersion: V2
-    created: "2021-08-24T21:06:12.5581769+03:00"
+    created: "2021-08-24T21:13:41.424201+03:00"
     digest: bfed787104dbea97be57686ecd2cdd248ec78a7ab4851e9e0511df304edcd85c
     name: rental
     urls:
-    - https://github.com/Hurr1son/helm/rental-1.tgz
+    - https://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@raw.githubusercontent.com/Hurr1son/helm/main/rental-1.tgz
     version: "1"
-generated: "2021-08-24T21:06:12.557625+03:00"
+generated: "2021-08-24T21:13:41.423651+03:00"
