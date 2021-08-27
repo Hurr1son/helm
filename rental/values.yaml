@@ -1,6 +1,7 @@
 replicaCount: 2
 
 container:
-  image: eu.gcr.io/terraform-319316/rental-test
+  image: eu.gcr.io/terraform-319316/rental
   tag: init
+  env: default
 environment: test
