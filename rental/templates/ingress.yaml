@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-ingress
+spec:
+  rules:
+    - host: {{ .Values.ingress.host.dev}}
+      http:
+        paths:
+          backend:
+            serviceName: {{ .Release.Name }}-service-dev
+            servicePort: 80
+    - host: {{ .Values.ingress.host.prod}}
+      http:
+        paths:
+          backend:
+            serviceName: {{ .Release.Name }}-service-prod
+            servicePort: 80
