@@ -1,12 +1,12 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: rental-ingress
+  name: {{ .Release.Name}}-ingress-{{ .Values.env}}
 spec:
   rules:
     - host: {{ pluck .Values.env .Values.ingress.host | first | default .Values.ingress.host.default }}
       http:
         paths:
         - backend:
-            serviceName: {{ .Release.Name }}-service-{{ .Values.env }}
+            serviceName: {{ .Release.Name }}-service-{{ .Values.env}}
             servicePort: 80

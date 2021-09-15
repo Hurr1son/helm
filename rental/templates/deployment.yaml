@@ -1,9 +1,9 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-deployment
+  name: "{{ .Release.Name }}-deployment-{{ .Values.env}}"
   labels:
-    app : {{ .Release.Name }}-deployment
+    app : "{{ .Release.Name }}-deployment-{{ .Values.env}}"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -15,34 +15,13 @@ spec:
         project: {{ .Release.Name }} 
     spec:
       volumes:
-      - name: db-info
+      - name: {{ .Values.volumesname}}
         secret:
-          secretName: db-secrets
+          secretName: {{ .Values.secretname}}
       containers:
-        - name : {{ .Release.Name }}-web
-          image: "{{ .Values.container.image}}-{{ .Values.env}}:{{ .Values.container.tag}}"
-          resources: {}
+        - name : "{{ .Release.Name }}-web"
+          image: "{{ .Values.container.image}}-{{ .Values.env}}:{{ .Values.container.tag }}"
           env: 
-          - name: DB_HOST
-            valueFrom:
-              secretKeyRef:
-                name: db-secrets
-                key : db_host
-          - name: DB_USER
-            valueFrom:
-              secretKeyRef:
-                name: db-secrets
-                key : db_user
-          - name: DB_PASS
-            valueFrom:
-              secretKeyRef:
-                name: db-secrets
-                key : db_pass
-          - name: DB_NAME
-            valueFrom:
-              secretKeyRef:
-                name: db-secrets
-                key : db_name      
+          {{- toYaml .Values.container.env | nindent 12}}
           ports:
-            - containerPort: 8080
-
+            - containerPort: {{ .Values.container.containerPort}}
